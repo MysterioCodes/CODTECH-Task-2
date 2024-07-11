@@ -1,0 +1,40 @@
+def avg(grades):
+  total = sum(grades)
+  return total / len(grades)
+
+def get_letter_grade(average):
+  if average >= 90:
+      return 'A'
+  elif average >= 80:
+      return 'B'
+  elif average >= 70:
+      return 'C'
+  elif average >= 60:
+      return 'D'
+  else:
+      return 'F'
+
+def get_gpa(letter_grade):
+  grades = {'A': 4.0, 'B': 3.0, 'C': 2.0, 'D': 1.0, 'F': 0.0}
+  return grades.get(letter_grade, 0.0)
+
+def main():
+  name = input("Enter student name: ")
+  num_subjects = int(input("Enter number of subjects: "))
+
+  grades = []
+  for i in range(num_subjects):
+      grade = float(input(f"Enter grade for subject {i+1}: "))
+      grades.append(grade)
+
+  average = avg(grades)
+  letter_grade = get_letter_grade(average)
+  gpa = get_gpa(letter_grade)
+
+  print(f"\nStudent Name: {name}")
+  print(f"Average Grade: {average:.2f}")
+  print(f"Letter Grade: {letter_grade}")
+  print(f"GPA: {gpa:.2f}")
+
+if __name__ == "__main__":
+  main()
